@@ -1,0 +1,80 @@
+<!-- templates/index.html -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dishes Information</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dishes Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Dish</th>
+                <th>Caloric (kcal)</th>
+                <th>Carbon (g)</th>
+                <th>Protein (g)</th>
+                <th>Fat (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dish in dishes %}
+            <tr>
+                <td>{{ dish.name }}</td>
+                <td>{{ dish.caloric }}</td>
+                <td>{{ dish.carbon }}</td>
+                <td>{{ dish.protein }}</td>
+                <td>{{ dish.fat }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> -->
+
+<!-- templates/fact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calorie Burned</title>
+</head>
+<body>
+    <h1>Calorie Burned Calculator</h1>
+    <form method="POST">
+        <label for="activity">Activity:</label>
+        <input type="text" name="activity" id="activity" required>
+
+        <label for="duration">Duration (minutes):</label>
+        <input type="number" name="duration" id="duration" min="1" required>
+
+        <button type="submit">Calculate Calories Burned</button>
+    </form>
+
+    {% if result %}
+        <h2>Results:</h2>
+        <ul>
+            {% for item in result %}
+                <li>
+                    <strong>{{ item.name }}</strong>: {{ item.calories_per_hour }} calories per hour, 
+                    Total Calories for {{ item.duration_minutes }} minutes: {{ item.total_calories }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
